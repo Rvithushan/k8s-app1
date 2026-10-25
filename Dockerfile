@@ -11,7 +11,7 @@ RUN go mod download
 COPY main.go .
 
 #Build static binary with disabled CGO
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -0 sre-app1 main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o sre-app1 main.go
 
 #Stage 2: Minimal Distroless/static-debinan12:nonroot
 
