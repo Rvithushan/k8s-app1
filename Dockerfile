@@ -13,7 +13,9 @@ COPY main.go .
 #Build static binary with disabled CGO
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o sre-app1 main.go
 
-#Stage 2: Minimal Distroless/static-debinan12:nonroot
+#Stage 2: Minimal Distroless security container
+
+FROM gcr.io/distroless/static-debian12:nonroot
 
 WORKDIR /
 
